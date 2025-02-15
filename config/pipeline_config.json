@@ -1,0 +1,8 @@
+{
+    "steps": [
+      {"name": "ValidationStep", "enabled": true, "on_error": "halt"},
+      {"name": "AnonymizationStep", "enabled": true, "on_error": "continue", "condition": "is_valid == True"},
+      {"name": "TokenizationStep", "enabled": true, "on_error": "continue", "condition": "anonymized == True"},
+      {"name": "TokenLimitCheckStep", "enabled": true, "on_error": "halt", "condition": "tokenized == True", "params": {"max_tokens": 100}}
+    ]
+  }
